@@ -11,11 +11,18 @@ export default function TicketList({ tickets }) {
         <span className="ticket-count">{tickets.length}</span>
       </div>
 
-      <div className="ticket-list">
-        {tickets.map((ticket) => (
-          <TicketCard key={ticket.id} ticket={ticket} />
-        ))}
-      </div>
+      {tickets.length === 0 ? (
+        <div className="state-message">
+          Non ci sono ticket aperti.<br />
+          Quando verra creato un nuovo ticket, lo vedrai qui.
+        </div>
+      ) : (
+        <div className="ticket-list">
+          {tickets.map((ticket) => (
+            <TicketCard key={ticket.id} ticket={ticket} />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
