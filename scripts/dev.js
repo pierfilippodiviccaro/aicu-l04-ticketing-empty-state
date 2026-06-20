@@ -4,10 +4,12 @@ const pnpmCommand = process.platform === "win32" ? "pnpm.cmd" : "pnpm";
 
 const processes = [
   spawn("node", ["server/index.js"], {
-    stdio: "inherit"
+    stdio: "inherit",
+    shell: true
   }),
   spawn(pnpmCommand, ["exec", "vite", "--host", "127.0.0.1"], {
-    stdio: "inherit"
+    stdio: "inherit",
+    shell: true
   })
 ];
 
